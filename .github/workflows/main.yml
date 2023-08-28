@@ -1,0 +1,19 @@
+name: Run HTML File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-html:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Start web server
+      run: |
+        python3 -m http.server 8000
+      working-directory: ./path/to/your/html/file
